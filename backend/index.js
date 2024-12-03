@@ -61,6 +61,15 @@ app.get('/getItems', async function(req, res, next) {
     }
    })
 
+app.get('/getItemsUser', async function(req, res, next) {
+    try {
+    res.json(await login.getDataUser(req))
+    } catch (err) {
+    console.error(`Error while getting items `, err.message);
+    next(err);
+    }
+   })   
+
 app.get('/deleteItem', async function(req, res, next) {
  try {
 res.json(await item.deleteData(req))

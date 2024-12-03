@@ -7,31 +7,23 @@ import { Column } from "@material-table/core";
 import { useState } from "react";
 //Creo la interfaz para los tipos de los campos (field) de la tabla.
 //La tabla tendrá los campos firstName: string, lastName: string, birthYear: number
-interface coleccion {
+interface usuarios {
  nombre: string;
- marca: string;
- tipo: string,
- precio: number;
+ login: string;
+ password: string,
+ rol: number;
 }
-function InformeColeccion({tableData}: {tableData:any[]}){
+function InformeUsuario({tableData}: {tableData:any[]}){
   
- const col: Array<Column<coleccion>> = [
+ const col: Array<Column<usuarios>> = [
  { title: "Nombre", field: "nombre" , filtering: true},
- { title: "Marca", field: "marca",filtering: true },
- { title: "Tipo", field: "tipo",filtering: false },
- { title: "Precio", field: "precio", type: "numeric",filtering: false }
+ { title: "Login", field: "login",filtering: false },
+ { title: "Password", field: "password",filtering: false },
+ { title: "Rol", field: "rol",filtering: false }
  ];
 
 return (
-<MaterialTable columns={col} data={tableData} title={"Coleccion de tabla"}
-renderSummaryRow={({ column, data }) =>
-    column.field === "precio"
-          ? {
-              value: data.reduce((agg, row) => agg + row.precio, 0),
-              style: { background: "#3c1cc9" },
-            }
-          : undefined
-      } 
+<MaterialTable columns={col} data={tableData} title={"Informe de Usuarios"}
 options={{
     draggable: true,
     columnsButton: true,
@@ -56,4 +48,4 @@ options={{
 
 )
 }
-export default InformeColeccion
+export default InformeUsuario

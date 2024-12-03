@@ -17,8 +17,20 @@ async function getUserData (user, password) {
         data 
     }
 }
+async function getDataUser (req, res) {
+  
+    const rows = await db.query(
+         `select * from usuarios`)
+
+   const data = helper.emptyOrRows(rows)
+   return {
+ 
+     data 
+      }
+   }
 
 //Exporto la función getUserData para poder usarla en otro fichero
 module.exports = {
-    getUserData
+    getUserData,
+    getDataUser
 }

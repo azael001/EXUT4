@@ -30,6 +30,7 @@ return {
   data 
    }
 }
+
 //Función con la consulta para borrar datos de la base de datos: DELETE
 async function deleteData (req, res) {
   //En data almaceno los datos que me pasan para poder realizar el delete, me pasarán el id.
